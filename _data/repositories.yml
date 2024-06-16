@@ -1,12 +1,7 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - haleqiu
 
 github_repos:
-  - alshedivat/al-folio
-  - twbs/bootstrap
-  - jekyll/jekyll
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - jpswalsh/academicons
-  - mathjax/MathJax
+  - haleqiu/AirDOS
+  - haleqiu/AirIMU
+  - pypose/pypose
