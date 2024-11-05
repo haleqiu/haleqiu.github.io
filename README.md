@@ -9,3 +9,6 @@ change the color of abbr in `_data/venue.yml`
 ## image size of 
 
 change the ` <div class="col col-sm-4 abbr">` in the `_layout/bib.liquid`
+
+'''bundle exec jekyll serve'''
+
