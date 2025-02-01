@@ -12,3 +12,5 @@ change the ` <div class="col col-sm-4 abbr">` in the `_layout/bib.liquid`
 
 '''bundle exec jekyll serve'''
 
+## paper image 
+the jif and img are saved in `assets/img/publication_preview`
