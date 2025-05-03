@@ -24,7 +24,7 @@ One specific area I focus on is creating generalized learning-based SLAM systems
 
 I received a B.Eng. degree in Computer Science and Engineering from The Chinese University of Hong Kong, Shenzhen (CUHK-SZ) in 2019. 
 
-{% twitter https://x.com/QiuYuhengQiu maxheight=300 maxwidth=700 limit=1 %}
+<!-- {% twitter https://x.com/QiuYuhengQiu maxheight=300 maxwidth=700 limit=1 %} -->
 <!-- <a class="twitter-timeline" href="https://twitter.com/QiuYuhengQiu?ref_src=twsrc%5Etfw">Tweets by QiuYuhengQiu</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
 <br>
 <br>
