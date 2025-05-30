@@ -6,11 +6,12 @@ Originally, **al-folio** was based on the [\*folio theme](https://github.com/bog
 
 change the color of abbr in `_data/venue.yml`
 
-## image size of 
+## image size of
 
 change the ` <div class="col col-sm-4 abbr">` in the `_layout/bib.liquid`
 
 '''bundle exec jekyll serve'''
 
-## paper image 
+## paper image
+
 the jif and img are saved in `assets/img/publication_preview`
