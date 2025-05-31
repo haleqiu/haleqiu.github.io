@@ -53,9 +53,14 @@ GEM
     ffi (1.16.3)
     forwardable-extended (2.6.0)
     gemoji (4.1.0)
-    google-protobuf (4.26.1-aarch64-linux)
+    google-protobuf (4.31.1-aarch64-linux-gnu)
+      bigdecimal
       rake (>= 13)
-    google-protobuf (4.26.1-x86_64-linux)
+    google-protobuf (4.31.1-x86_64-darwin)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.31.1-x86_64-linux-gnu)
+      bigdecimal
       rake (>= 13)
     html-pipeline (2.14.3)
       activesupport (>= 2)
@@ -135,6 +140,7 @@ GEM
       kramdown (~> 2.0)
     latex-decode (0.4.0)
     libv8-node (21.7.2.0-aarch64-linux)
+    libv8-node (21.7.2.0-x86_64-darwin)
     libv8-node (21.7.2.0-x86_64-linux)
     liquid (4.0.4)
     listen (3.9.0)
@@ -154,10 +160,13 @@ GEM
     mutex_m (0.2.0)
     namae (1.2.0)
       racc (~> 1.7)
-    nokogiri (1.16.5-aarch64-linux)
+    nokogiri (1.18.8-aarch64-linux-gnu)
       racc (~> 1.4)
-    nokogiri (1.16.5-x86_64-linux)
+    nokogiri (1.18.8-x86_64-darwin)
       racc (~> 1.4)
+    nokogiri (1.18.8-x86_64-linux-gnu)
+      racc (~> 1.4)
+    observer (0.1.2)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     public_suffix (5.0.5)
@@ -171,6 +180,8 @@ GEM
     rouge (4.2.1)
     safe_yaml (1.0.5)
     sass-embedded (1.77.0-aarch64-linux-gnu)
+      google-protobuf (>= 3.25, < 5.0)
+    sass-embedded (1.77.0-x86_64-darwin)
       google-protobuf (>= 3.25, < 5.0)
     sass-embedded (1.77.0-x86_64-linux-gnu)
       google-protobuf (>= 3.25, < 5.0)
@@ -188,6 +199,7 @@ GEM
 
 PLATFORMS
   aarch64-linux
+  x86_64-darwin-23
   x86_64-linux-gnu
 
 DEPENDENCIES
@@ -212,6 +224,7 @@ DEPENDENCIES
   jekyll-twitter-plugin
   jemoji
   mini_racer
+  observer
   unicode_utils
   webrick
 
