@@ -137,9 +137,9 @@
     {% assign proceedings = 'inproceedings,incollection' | split: ',' %}
     {% assign thesis = 'thesis,mastersthesis,phdthesis' | split: ',' %}
     {% if entry.type == 'article' %}
-      {% capture entrytype %}<em>{{entry.journal}}</em>{% endcapture %}
+      {% capture entrytype %}<strong style="font-size:1.1em;">{{entry.journal}}</strong>{% endcapture %}
     {% elsif proceedings contains entry.type %}
-      {% capture entrytype %}<em>In {{entry.booktitle}}</em> {% endcapture %}
+      {% capture entrytype %}<strong style="font-size:1.1em;">{{entry.booktitle}}</strong> {% endcapture %}
     {% elsif thesis contains entry.type %}
       {% capture entrytype %}<em>{{entry.school}}</em> {% endcapture %}
     {% else %}
@@ -149,7 +149,7 @@
       {% capture entrymonth %}{{ " " }}{{ entry.month | capitalize }}{% endcapture %}
     {% endif %}
     {% if entry.year %}
-      {% capture entryyear %}{{ " " }}{{entry.year}}{% endcapture %}
+      {% capture entryyear %} <strong>{{entry.year}}</strong>{% endcapture %}
     {% endif %}
     {% if entry.location %}
       {% capture entrytype %}{{entrytype}}{{ ", " }}{{entry.location}}{% endcapture %}
