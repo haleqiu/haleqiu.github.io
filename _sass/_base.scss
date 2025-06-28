@@ -198,11 +198,11 @@ ul.task-list input[type="checkbox"] {
 }
 
 .profile.float-right {
-  margin-left: 1rem;
+  margin-left: 2.5rem;
 }
 
 .profile.float-left {
-  margin-right: 1rem;
+  margin-right: 2.5rem;
 }
 
 @media (min-width: 576px) {
@@ -666,7 +666,10 @@ footer.sticky-bottom {
     border-top: 1px solid var(--global-divider-color);
     padding-top: 1rem;
     margin-top: 2rem;
-    text-align: right;
+    text-align: left;
+    font-size: 1.4rem;
+    font-weight: normal;
+    opacity: 1;
   }
 
   ol.bibliography {
@@ -816,6 +819,25 @@ footer.sticky-bottom {
       border-color: var(--global-highlight-color);
     }
   }
+}
+
+// Publications font consistency
+.publications {
+  font-family: "Roboto", sans-serif;
+  font-size: inherit;
+  font-weight: 300;
+}
+.publications .title,
+.publications .periodical {
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+  font-size: inherit;
+}
+.publications .author,
+.publications .more-authors {
+  font-family: "Roboto", sans-serif;
+  font-size: inherit;
+  font-weight: 300;
 }
 
 // Rouge Color Customization
@@ -1129,4 +1151,9 @@ ninja-keys::part(ninja-input) {
 }
 ninja-keys::part(ninja-input-wrapper) {
   background: var(--global-bg-color);
+}
+
+.periodical .author em {
+  border-bottom: none !important;
+  font-style: italic !important;
 }

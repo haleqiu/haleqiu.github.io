@@ -2,7 +2,7 @@
 ---
 <div class="row">
   {% if site.enable_publication_thumbnails %}
-    <div class="col col-sm-4 abbr">
+    <div class="col col-sm-3 abbr">
       {%- if entry.abbr -%}
         {%- if site.data.venues[entry.abbr] -%}
           {% assign venue_style = null %}
@@ -27,7 +27,7 @@
       {% endif %}
       {% if entry.preview %}
         {% if entry.preview contains '://' %}
-          <img class="preview z-depth-1 rounded" src="{{ entry.preview }}">
+          <img class="preview z-depth-1 rounded" src="{{ entry.preview }}" data-zoomable>
         {% else %}
           {% assign entry_path = entry.preview | prepend: '/assets/img/publication_preview/' %}
           {%
@@ -45,7 +45,7 @@
   {% endif %}
 
   <!-- Entry bib key -->
-  <div id="{{entry.key}}" class="{% if site.enable_publication_thumbnails %}col-sm-8{% else %}col-sm-10{% endif %}">
+  <div id="{{entry.key}}" class="{% if site.enable_publication_thumbnails %}col-sm-9{% else %}col-sm-12{% endif %}">
     <!-- Title -->
     <div class="title">{{ entry.title }}</div>
     <!-- Author -->
@@ -81,7 +81,7 @@
           {%- if forloop.last and author_array_limit == author_array_size %}and&nbsp;{% endif -%}
         {% endif %}
         {%- if author_is_self -%}
-          <b style="color: tomato">
+          <b style="color: #0056b3">
             {{- author.first }}
             {{ author.last -}}
           </b>
@@ -106,7 +106,18 @@
         {%- endif -%}
         {% assign more_authors_show = '' %}
         {%- for author in entry.author_array offset: author_array_limit -%}
-          {% assign more_authors_show = more_authors_show | append: author.first | append: ' ' | append: author.last %}
+          {%- assign author_is_self = false -%}
+          {%- assign author_last_name = author.last | remove: '¶' | remove: '&' | remove: '*' | remove: '†' | remove: '^' -%}
+          {% if site.scholar.last_name contains author_last_name %}
+            {% if site.scholar.first_name contains author.first %}
+              {% assign author_is_self = true %}
+            {% endif %}
+          {% endif %}
+          {% if author_is_self %}
+            {% assign more_authors_show = more_authors_show | append: '<b style="color: #0056b3">' | append: author.first | append: ' ' | append: author.last | append: '</b>' %}
+          {% else %}
+            {% assign more_authors_show = more_authors_show | append: author.first | append: ' ' | append: author.last %}
+          {% endif %}
           {% unless forloop.last %}
             {% assign more_authors_show = more_authors_show | append: ', ' %}
           {% endunless %}
@@ -118,10 +129,10 @@
           onclick="
               var element = $(this);
               element.attr('title', '');
-              var more_authors_text = element.text() == '{{more_authors_hide}}' ? '{{more_authors_show}}' : '{{more_authors_hide}}';
+              var more_authors_text = element.text() == '{{more_authors_hide}}' ? '{{more_authors_show | escape }}' : '{{more_authors_hide}}';
               var cursorPosition = 0;
               var textAdder = setInterval(function(){
-                element.text(more_authors_text.substring(0, cursorPosition + 1));
+                element.html(more_authors_text.substring(0, cursorPosition + 1));
                 if (++cursorPosition == more_authors_text.length){
                   clearInterval(textAdder);
                 }
@@ -137,11 +148,11 @@
     {% assign proceedings = 'inproceedings,incollection' | split: ',' %}
     {% assign thesis = 'thesis,mastersthesis,phdthesis' | split: ',' %}
     {% if entry.type == 'article' %}
-      {% capture entrytype %}<strong style="font-size:1.1em;">{{entry.journal}}</strong>{% endcapture %}
+      {% capture entrytype %}<span class="author"><em style="font-size:1.1em; font-weight:inherit; font-family:inherit;">{{entry.journal}}</em></span>{% endcapture %}
     {% elsif proceedings contains entry.type %}
-      {% capture entrytype %}<strong style="font-size:1.1em;">{{entry.booktitle}}</strong> {% endcapture %}
+      {% capture entrytype %}<span class="author"><em style="font-size:1.1em; font-weight:inherit; font-family:inherit;">{{entry.booktitle}}</em></span> {% endcapture %}
     {% elsif thesis contains entry.type %}
-      {% capture entrytype %}<em>{{entry.school}}</em> {% endcapture %}
+      {% capture entrytype %}<span class="author"><em style="font-weight:inherit; font-family:inherit;">{{entry.school}}</em></span> {% endcapture %}
     {% else %}
       {% capture entrytype %}{% endcapture %}
     {% endif %}
@@ -149,7 +160,7 @@
       {% capture entrymonth %}{{ " " }}{{ entry.month | capitalize }}{% endcapture %}
     {% endif %}
     {% if entry.year %}
-      {% capture entryyear %} <strong>{{entry.year}}</strong>{% endcapture %}
+      {% capture entryyear %} <span class="author"><em style="font-weight:inherit; font-family:inherit;">{{entry.year}}</em></span>{% endcapture %}
     {% endif %}
     {% if entry.location %}
       {% capture entrytype %}{{entrytype}}{{ ", " }}{{entry.location}}{% endcapture %}
@@ -162,9 +173,12 @@
       {% include hook/bib.liquid %}
     {% endif %}
     {% assign entrytype_text = entrytype | strip_html | strip %}
-    {% capture periodical %}{{ entrytype }}{% if entrytype_text != "" and entryyear != "" %}, {% endif %}{{ entrymonth }}{{ entryyear }}{% endcapture %}
+    {% capture periodical %}{{ entrytype }}{% if entrytype_text != "" and entryyear != "" %} {% endif %}{{ entrymonth }}{{ entryyear }}{% endcapture %}
     <div class="periodical">
       {{ periodical | strip }}
+      {% if entry.award %}
+        <span class="author" style="color: red;"> ({{ entry.award_name | default: 'Best Paper' }})</span>
+      {% endif %}
     </div>
     <div class="periodical">
       {{ entry.note | strip }}

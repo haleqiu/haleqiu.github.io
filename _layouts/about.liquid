@@ -6,7 +6,7 @@ layout: default
     <h1 class="post-title">
       {% if site.title == 'blank' %}
         <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
-        {{ site.last_name }}
+        <span class="font-weight-bold">{{ site.last_name }}
       {% else %}
         {{ site.title }}
       {% endif %}
@@ -38,12 +38,14 @@ layout: default
       </div>
     {% endif %}
     {% comment %} <div class="clearfix">{% twitter https://x.com/QiuYuhengQiu/status %}</div> {% endcomment %}
-    <div class="clearfix">{{ content }}</div>
+    <div class="clearfix" style="text-align: justify;">{{ content }}</div>
 
     <!-- News -->
     {% if page.news and site.announcements.enabled %}
+      <div style="position: relative; top: -50px;"><a id="news"></a></div>
+      <div style="margin-top: 1rem;"></div>
       <h2>
-        <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
+        News
       </h2>
       {% include news.liquid limit=true %}
     {% endif %}
@@ -58,11 +60,15 @@ layout: default
 
     <!-- Selected papers -->
     {% if page.selected_papers %}
+      <!-- Anchor for navigation scroll -->
+      <div style="position: relative; top: -50px;"><a id="publications"></a></div>
+      <div style="margin-top: 1rem;"></div>
       <h2>
-        Selected Publications 
-        <a href="{{ '/publications/' | relative_url }}" style="color: blue; text-decoration: underline; font-size: smaller;"> (show all publications) </a>
+        Publications
       </h2>
-      {% include selected_papers.liquid %}
+      <div class="publications">
+        {% bibliography %}
+      </div>
     {% endif %}
 
     <!-- Social -->
