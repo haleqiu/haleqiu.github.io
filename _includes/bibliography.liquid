@@ -7,7 +7,11 @@
           {% if entry.preview contains '://' %}
             <img src="{{ entry.preview }}" alt="preview" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
           {% else %}
-            <img src="/assets/img/publication_preview/{{ entry.preview }}" alt="preview" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+            <img
+              src="/assets/img/publication_preview/{{ entry.preview }}"
+              alt="preview"
+              style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);"
+            >
           {% endif %}
         {% endif %}
       </div>
@@ -15,15 +19,29 @@
       <div style="flex: 1 1 0; min-width: 0;">
         <div class="title" style="font-size: 1.25rem; font-weight: bold; margin-bottom: 0.25rem;">{{ entry.title }}</div>
         <div class="author" style="color: #888; margin-bottom: 0.25rem; font-size: 1rem;">{{ entry.author }}</div>
-        <div class="periodical" style="font-size: 1rem; margin-bottom: 0.25rem;">{{ entry.booktitle }}{% if entry.journal %}{{ entry.journal }}{% endif %}{% if entry.year %} ({{ entry.year }}){% endif %}</div>
+        <div class="periodical" style="font-size: 1rem; margin-bottom: 0.25rem;">
+          {{ entry.booktitle -}}
+          {%- if entry.journal %}{{ entry.journal }}{% endif -%}
+          {%- if entry.year %} ({{ entry.year }}){% endif %}
+        </div>
         <div class="links" style="margin-top: 0.5rem;">
-          {% if entry.pdf %}<a href="{{ entry.pdf }}" style="color: #2196f3;">paper</a>{% endif %}
-          {% if entry.website %} | <a href="{{ entry.website }}" style="color: #2196f3;">website</a>{% endif %}
-          {% if entry.video %} | <a href="{{ entry.video }}" style="color: #2196f3;">video</a>{% endif %}
-          {% if entry.code %} | <a href="{{ entry.code }}" style="color: #2196f3;">code</a>{% endif %}
-          {% if entry.bibtex_show or entry.bibtex %} | <a href="#" style="color: #2196f3;">bibtex</a>{% endif %}
+          {% if entry.pdf -%}
+            <a href="{{ entry.pdf }}" style="color: #2196f3;">paper</a>
+          {%- endif %}
+          {% if entry.website %}
+            | <a href="{{ entry.website }}" style="color: #2196f3;">website</a>
+          {%- endif %}
+          {% if entry.video %}
+            | <a href="{{ entry.video }}" style="color: #2196f3;">video</a>
+          {%- endif %}
+          {% if entry.code %}
+            | <a href="{{ entry.code }}" style="color: #2196f3;">code</a>
+          {%- endif %}
+          {% if entry.bibtex_show or entry.bibtex %}
+            | <a href="#" style="color: #2196f3;">bibtex</a>
+          {%- endif %}
         </div>
       </div>
     </li>
   {% endfor %}
-</ul> 
+</ul>

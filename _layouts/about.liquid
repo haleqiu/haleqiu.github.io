@@ -44,9 +44,7 @@ layout: default
     {% if page.news and site.announcements.enabled %}
       <div style="position: relative; top: -50px;"><a id="news"></a></div>
       <div style="margin-top: 1rem;"></div>
-      <h2>
-        News
-      </h2>
+      <h2>News</h2>
       {% include news.liquid limit=true %}
     {% endif %}
 
@@ -63,9 +61,7 @@ layout: default
       <!-- Anchor for navigation scroll -->
       <div style="position: relative; top: -50px;"><a id="publications"></a></div>
       <div style="margin-top: 1rem;"></div>
-      <h2>
-        Publications
-      </h2>
+      <h2>Publications</h2>
       <div class="publications">
         {% bibliography %}
       </div>
