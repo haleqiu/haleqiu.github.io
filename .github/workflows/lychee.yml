@@ -1,0 +1,8 @@
+jobs:
+  linkChecker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run lychee link checker
+        run: |
+          npx lychee . --exclude "linkedin.com" --exclude "scholar.google.com" --verbose
