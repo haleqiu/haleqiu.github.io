@@ -61,10 +61,18 @@
             <a class="nav-link" href="/#news">News</a>
           </li>
 
+          <!-- Projects (manual insert) -->
+          <li class="nav-item {% if page.url == '/' and page.projects %}active{% endif %}">
+            <a class="nav-link" href="/#talks">Talks</a>
+            {% if page.url == '/' and page.projects %}
+              <span class="sr-only">(current)</span>
+            {% endif %}
+          </li>
+
           <!-- Other pages -->
           {% assign sorted_pages = site.pages | sort: 'nav_order' %}
           {% for p in sorted_pages %}
-            {% if p.nav and p.autogen == null and p.title != 'News' %}
+            {% if p.nav and p.autogen == null and p.title != 'News' and p.title != 'projects' %}
               {% if p.dropdown %}
                 {% assign has_active_child = false %}
                 {% for child in p.children %}

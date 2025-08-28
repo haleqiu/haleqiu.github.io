@@ -48,6 +48,24 @@ layout: default
       {% include news.liquid limit=true %}
     {% endif %}
 
+    <!-- Projects -->
+    {% if page.talks %}
+      <div style="position: relative; top: -50px;"><a id="talks"></a></div>
+      <div style="margin-top: 1rem;"></div>
+      <h2>Talks</h2>
+      <div style="height: 1rem;"></div>
+      <div class="talks">
+        {% assign sorted_projects = site.projects | sort: "importance" %}
+        <div class="container">
+          <div class="row">
+            {% for project in sorted_projects limit:1 %}
+              {% include projects_horizontal.liquid %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+
     <!-- Latest posts -->
     {% if site.latest_posts.enabled %}
       <h2>
