@@ -13,6 +13,7 @@ profile:
 news: true # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: false # includes social icons at the bottom of the page
+talks: true # enables the Talks section
 ---
 
 I am a Ph.D. candidate at Carnegie Mellon University, advised by [Sebastian Scherer](https://theairlab.org/team/sebastian/) and affiliated with the [AirLab](https://theairlab.org). I am currently collaborating with [Rocky Duan](http://rockyduan.com) and [Pieter Abbeel](https://people.eecs.berkeley.edu/~pabbeel/) at Amazon Robotics FAR (Frontier AI & Robotics), as well as with [Guanya Shi](https://www.gshi.me) at Carnegie Mellon University. Previously, I have worked with [Abhinav Gupta](http://www.cs.cmu.edu/~abhinavg/) at [Skild.ai](http://skild.ai), [Chen Wang](https://sairlab.org/chenw/) from the University at Buffalo, and [Jenny Geng](https://ari-psu.github.io/team/junyi_geng/) from Penn State. I received my B.Eng. in Computer Science and Engineering from the Chinese University of Hong Kong, Shenzhen in 2019.
