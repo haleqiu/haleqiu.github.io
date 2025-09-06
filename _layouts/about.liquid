@@ -48,18 +48,18 @@ layout: default
       {% include news.liquid limit=true %}
     {% endif %}
 
-    <!-- Projects -->
+    <!-- Talks -->
     {% if page.talks %}
       <div style="position: relative; top: -50px;"><a id="talks"></a></div>
       <div style="margin-top: 1rem;"></div>
       <h2>Talks</h2>
       <div style="height: 1rem;"></div>
       <div class="talks">
-        {% assign sorted_projects = site.projects | sort: "importance" %}
+        {% assign sorted_talks = site.talks | sort: "date" | reverse %}
         <div class="container">
           <div class="row">
-            {% for project in sorted_projects limit:1 %}
-              {% include projects_horizontal.liquid %}
+            {% for talk in sorted_talks limit:1 %}
+              {% include talks_horizontal.liquid %}
             {% endfor %}
           </div>
         </div>
