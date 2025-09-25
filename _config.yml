@@ -186,6 +186,9 @@ collections:
   projects:
     output: false
     permalink: /projects/:path/
+  talks:
+    output: true
+    permalink: /talks/:path/
 
 announcements:
   enabled: true
