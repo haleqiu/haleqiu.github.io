@@ -1,0 +1,122 @@
+---
+layout: default
+---
+<div class="post">
+
+  {% if page.img %}
+    <style>
+      .talk-hero {
+        background-image: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,1)), url('{{ page.img | relative_url }}');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin: -2rem -1rem 2rem -1rem;
+        border-radius: 0.5rem;
+        color: #333;
+      }
+      
+      html[data-theme="dark"] .talk-hero {
+        background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,1)), url('{{ page.img | relative_url }}');
+        color: white;
+      }
+      
+      .talk-hero .hero-content {
+        max-width: 800px;
+        padding: 2rem;
+      }
+      
+      .talk-hero .post-title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+        color: inherit;
+      }
+      
+      html[data-theme="dark"] .talk-hero .post-title {
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
+      }
+      
+      .talk-hero .post-description {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        text-shadow: 1px 1px 2px rgba(255,255,255,0.7);
+        color: inherit;
+      }
+      
+      html[data-theme="dark"] .talk-hero .post-description {
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+      }
+      
+      .talk-hero .talk-meta {
+        color: inherit;
+      }
+      
+      .talk-hero .talk-meta p {
+        margin: 0.5rem 0;
+        text-shadow: 1px 1px 2px rgba(255,255,255,0.6);
+      }
+      
+      html[data-theme="dark"] .talk-hero .talk-meta p {
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+      }
+    </style>
+    
+    <div class="talk-hero">
+      <div class="hero-content">
+        <h1 class="post-title">{{ page.title }}</h1>
+        <p class="post-description">{{ page.description }}</p>
+        
+        {% if page.venue or page.location or page.date %}
+          <div class="talk-meta">
+            {% if page.date %}
+              <p><strong>📅 {{ page.date | date: "%B %d, %Y" }}</strong></p>
+            {% endif %}
+            {% if page.venue %}
+              <p><strong>🏛️ {{ page.venue }}</strong></p>
+            {% endif %}
+            {% if page.location %}
+              <p><strong>📍 {{ page.location }}</strong></p>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  {% else %}
+    <header class="post-header">
+      <h1 class="post-title">{{ page.title }}</h1>
+      <p class="post-description">{{ page.description }}</p>
+      
+      {% if page.venue or page.location or page.date %}
+        <div class="talk-meta">
+          {% if page.date %}
+            <p><strong>Date:</strong> {{ page.date | date: "%B %d, %Y" }}</p>
+          {% endif %}
+          {% if page.venue %}
+            <p><strong>Venue:</strong> {{ page.venue }}</p>
+          {% endif %}
+          {% if page.location %}
+            <p><strong>Location:</strong> {{ page.location }}</p>
+          {% endif %}
+        </div>
+      {% endif %}
+    </header>
+  {% endif %}
+
+  <article class="post-content">
+    {{ content }}
+  </article>
+
+  {% if page.external_url %}
+    <div class="text-center mt-4">
+      <a class="btn btn-primary" href="{{ page.external_url }}" target="_blank">
+        <i class="fa-solid fa-external-link"></i> View Project Website
+      </a>
+    </div>
+  {% endif %}
+
+</div>
