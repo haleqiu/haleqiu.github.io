@@ -1,0 +1,4 @@
+# External services that are flaky or require auth in CI
+https://github-readme-stats.vercel.app/
+https://www.linkedin.com/
+https://scholar.google.com/
