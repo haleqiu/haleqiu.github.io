@@ -26,7 +26,7 @@ I have an innate passion for advancing spatial AI to enhance robot autonomy. One
     <a href="https://github.com/haleqiu">Github</a> /
     <a href="https://scholar.google.com/citations?user=aEK45mEAAAAJ">Google Scholar</a>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <strong>Email:</strong> yuhengq[at]andrew.cmu.edu
+    <strong>Email:</strong> yuhengq [at] andrew.cmu.edu
 </div>
 <!-- {% twitter https://x.com/QiuYuhengQiu maxheight=300 maxwidth=700 limit=1 %} -->
 <!-- <a class="twitter-timeline" href="https://twitter.com/QiuYuhengQiu?ref_src=twsrc%5Etfw">Tweets by QiuYuhengQiu</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
