@@ -38,15 +38,19 @@ on:
       - "!.github/workflows/prettier.yml"
       - "!lighthouse_results/**"
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   link-checker:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Link Checker 🔗
-        uses: lycheeverse/lychee-action@v1.9.0
+        uses: lycheeverse/lychee-action@v2.0.2
         with:
           fail: true
+          lycheeVersion: v0.18.1
           # removed md files that include liquid tags
-          args: --user-agent 'curl/7.54' --max-retries 3 --retry-wait-time 2 --exclude-path README.md --exclude-path _pages/404.md --exclude-path _pages/blog.md --exclude-path _posts/2018-12-22-distill.md --exclude-path _config.yml --verbose --no-progress './**/*.md' './**/*.html'
+          args: --user-agent 'curl/7.54' --max-retries 3 --retry-wait-time 2 --exclude-path README.md --exclude-path _pages/404.md --exclude-path _pages/blog.md --exclude-path _posts/2018-12-22-distill.md --exclude-path _config.yml --exclude-path '_site/**' --exclude-path assets/plotly/demo.html --verbose --no-progress './**/*.md' './**/*.html'
