@@ -1,0 +1,19 @@
+<ul class="awards-list">
+  {% for award in site.data.awards %}
+    <li>
+      <span class="award-year">{{ award.year }}</span>
+      <i class="fa-solid fa-trophy award-icon"></i>
+      <span>
+        <span class="award-name">{{ award.name }}</span>
+        {% if award.paper %}
+          —
+          {% if award.link -%}
+            <a href="{{ award.link }}">{{ award.paper }}</a>
+          {%- else -%}
+            {{- award.paper -}}
+          {%- endif %}
+        {% endif %}
+      </span>
+    </li>
+  {% endfor %}
+</ul>

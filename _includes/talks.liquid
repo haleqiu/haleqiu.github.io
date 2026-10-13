@@ -1,0 +1,30 @@
+<div class="row">
+  {% for talk in site.data.talks %}
+    {% if talk.page %}
+      {% assign talk_href = talk.page | relative_url %}
+    {% else %}
+      {% assign talk_href = talk.link %}
+    {% endif %}
+    <div class="col-md-6 mb-3">
+      <div class="card h-100 talk-card{% if talk_href %} hoverable{% endif %}">
+        <div class="card-body d-flex align-items-center">
+          <img class="talk-logo" src="{{ talk.logo | prepend: 'assets/img/logos/' | relative_url }}" alt="{{ talk.venue }}">
+          <div>
+            <div class="talk-title">
+              {% if talk_href -%}
+                <a href="{{ talk_href }}" class="stretched-link">{{ talk.title }}</a>
+              {%- else -%}
+                {{- talk.title -}}
+              {%- endif %}
+            </div>
+            <div class="talk-venue">{{ talk.venue }}</div>
+            <div class="talk-date">
+              {{ talk.date | date: '%b %d, %Y' -}}
+              {%- if talk.location %} · {{ talk.location }}{% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>

@@ -1,0 +1,8 @@
+# Talk cards on the About page, newest first.
+# logo: file in assets/img/logos/. page: internal detail page (optional). link: external link (optional).
+- title: "Learning Inertial Odometry: From Specialized to Generalized"
+  venue: "IROS 2026 Workshop: Beyond Exteroception — Interoceptive Perception for Resilient Robotics"
+  location: Pittsburgh, PA
+  date: 2026-09-27
+  logo: iros.png
+  page: /talks/iros2026/

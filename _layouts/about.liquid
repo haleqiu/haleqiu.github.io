@@ -51,22 +51,21 @@ layout: default
       {% include news.liquid limit=true %}
     {% endif %}
 
-    <!-- Projects -->
+    <!-- Awards -->
+    {% if page.awards %}
+      <div style="position: relative; top: -50px;"><a id="awards"></a></div>
+      <div style="margin-top: 1rem;"></div>
+      <h2>Awards</h2>
+      {% include awards.liquid %}
+    {% endif %}
+
+    <!-- Talks -->
     {% if page.talks %}
       <div style="position: relative; top: -50px;"><a id="talks"></a></div>
       <div style="margin-top: 1rem;"></div>
       <h2>Talks</h2>
       <div style="height: 1rem;"></div>
-      <div class="talks">
-        {% assign sorted_projects = site.projects | sort: 'importance' %}
-        <div class="container">
-          <div class="row">
-            {% for project in sorted_projects limit: 1 %}
-              {% include projects_horizontal.liquid %}
-            {% endfor %}
-          </div>
-        </div>
-      </div>
+      {% include talks.liquid %}
     {% endif %}
 
     <!-- Latest posts -->
